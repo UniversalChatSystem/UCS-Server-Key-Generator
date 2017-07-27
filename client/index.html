@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- W3.css library -->
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+  </head>
+  <body>
+    <center>
+      <div class="w3-card-4" style="width:50%;">
+        <header class="w3-container w3-blue">
+          <h1>Signup</h1>
+        </header>
+        <br>
+        <b>Enter your server credentials</b>
+        <br>
+        <br>
+        <div id="content">
+          <form action="/" method="POST" name="form" id="form"class="w3-container">
+          <fieldset>
+            <label class="w3-label w3-text-blue"><b>IP:</b></label>
+            <input width=50% class="w3-input w3-border" id="ip" type="text" name="ip" size="20" placeholder="71.1.149.72">
+            <label class="w3-label w3-text-blue"><b>Port:</b></label>
+            <input width=50% class="w3-input w3-border" id="port" type="number" name="port" size="20" placeholder="8080" min="0" max="65535">
+            <br>
+            <label class="w3-label w3-text-blue"><b></b></label>
+            <!-- <input class="w3-border" id="email" type="checkbox" name="email"> I agree to the Terms of Use and Privacy Policy of LilCoders
+            <br>
+            <div id="id"></div> -->
+          </fieldset>
+          <br>
+          <input class="w3-btn w3-blue" onclick="submitForm()" value="Sign up!"/>
+          <input class="w3-btn w3-blue" type="reset" value="Clear And Restart" onclick="clear()"/>
+          </form>
+        </div>
+        <br>
+      </div>
+      <script type="text/javascript">
+      submitForm = function() {
+        var ip = document.getElementById("ip").value;
+        var port = document.getElementById("port").value;
+        if(ip == "" || port == "" || ip == " " || port == " ")
+        {
+          if(ip == "" || ip == " ")
+          {
+            alert("You can't have an empty IP!");
+          } else {
+            alert("You can't have an empty port!");
+          }
+        } else {
+          var form = document.getElementById("form");
+          form.action = "/createServer/"+ip+"/"+port;
+          form.submit();
+        }
+      }
+      </script>
+    </center>
+  </body>
+</html>
